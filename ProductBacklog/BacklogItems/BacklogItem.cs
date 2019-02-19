@@ -10,5 +10,6 @@ namespace ProductBacklog.BacklogItems
         public string Description { get; set; }
         public IList<Task> Tasks { get; set; }
         public BacklogItemProgressState ProgressState { get; set; }
+        public int ProductBacklogId { get; set; }
     }
 }
