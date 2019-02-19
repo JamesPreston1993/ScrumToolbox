@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ProductBacklog.Tasks;
+using ScrumToolbox.ProductBacklogs.Tasks;
 
-namespace ProductBacklog.BacklogItems
+namespace ScrumToolbox.ProductBacklogs.BacklogItems
 {
     public class BacklogItem
     {

@@ -1,4 +1,4 @@
-﻿namespace ProductBacklog.BacklogItems
+﻿namespace ScrumToolbox.ProductBacklogs.BacklogItems
 {
     public enum BacklogItemProgressState
     {

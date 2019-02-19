@@ -1,4 +1,4 @@
-﻿namespace ProductBacklog.Tasks
+﻿namespace ScrumToolbox.ProductBacklogs.Tasks
 {
     public class Task
     {
