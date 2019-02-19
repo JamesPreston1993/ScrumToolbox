@@ -5,6 +5,6 @@
         public string Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public TaskProgressStatus ProgressState { get; set; }
+        public TaskProgressState ProgressState { get; set; }
     }
 }

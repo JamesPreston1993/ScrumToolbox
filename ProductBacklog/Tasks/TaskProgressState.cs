@@ -1,6 +1,6 @@
 ﻿namespace ProductBacklog.Tasks
 {
-    public enum TaskProgressStatus
+    public enum TaskProgressState
     {
         New,
         ToDo,
