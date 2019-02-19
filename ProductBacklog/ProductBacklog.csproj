@@ -10,5 +10,6 @@
   <ItemGroup>
     <Folder Include="Tasks\" />
     <Folder Include="BacklogItems\" />
+    <Folder Include="Backlogs\" />
   </ItemGroup>
 </Project>
