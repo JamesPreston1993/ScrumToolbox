@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using ScrumToolbox.ProductBacklogs.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using ScrumToolbox.ProductBacklogs.BacklogItems;
 using ScrumToolbox.ProductBacklogs.Backlogs;
+using ScrumToolbox.ProductBacklogs.Tasks;
 
 namespace ScrumToolbox.ProductBacklogs
 {
