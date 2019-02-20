@@ -10,5 +10,10 @@ namespace ScrumToolbox.ProductBacklogs
         public DbSet<ProductBacklog> ProductBacklogs { get; set; }
         public DbSet<BacklogItem> BacklogItems { get; set; }
         public DbSet<Task> Tasks { get; set; }
+
+        public ProductBacklogContext(DbContextOptions<ProductBacklogContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
     }
 }
