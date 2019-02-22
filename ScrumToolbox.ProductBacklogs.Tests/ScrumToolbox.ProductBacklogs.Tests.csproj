@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductBacklog\ProductBacklog.csproj" />
+    <ProjectReference Include="..\ScrumToolbox.ProductBacklogs\ScrumToolbox.ProductBacklogs.csproj" />
   </ItemGroup>
-
 </Project>
