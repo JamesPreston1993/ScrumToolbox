@@ -30,6 +30,16 @@ namespace ScrumToolbox.WebApi.Controllers
             return Ok(productBacklog);
         }
 
+        [HttpGet]
+        public IActionResult GetMany()
+        {
+            var productBacklogs = this.backlogContext
+                .ProductBacklogs
+                .ToList();
+
+            return Ok(productBacklogs);
+        }
+
         [HttpPost]
         public IActionResult Create(ProductBacklogCreationDto productBacklogDto)
         {
@@ -45,6 +55,25 @@ namespace ScrumToolbox.WebApi.Controllers
             this.backlogContext.SaveChanges();
 
             return Created($"{backlog.Id}", backlog);
+        }
+
+        [Route("{productBacklogId}")]
+        [HttpDelete]
+        public IActionResult Delete(int productBacklogId)
+        {
+            var productBacklog = this.backlogContext
+                .ProductBacklogs
+                .SingleOrDefault(pb => pb.Id == productBacklogId);
+
+            if (productBacklog == null)
+                return BadRequest("Could not find product backlog with specified id.");
+
+            this.backlogContext
+                .ProductBacklogs
+                .Remove(productBacklog);
+            this.backlogContext.SaveChanges();
+
+            return NoContent();
         }
     }
 }
