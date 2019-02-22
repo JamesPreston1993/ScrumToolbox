@@ -41,7 +41,7 @@ namespace ScrumToolbox.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductBacklogCreationDto productBacklogDto)
+        public IActionResult Create(ProductBacklogDto productBacklogDto)
         {
             if (string.IsNullOrWhiteSpace(productBacklogDto.Name))
                 return BadRequest("Name cannot be empty.");
@@ -55,6 +55,25 @@ namespace ScrumToolbox.WebApi.Controllers
             this.backlogContext.SaveChanges();
 
             return Created($"{backlog.Id}", backlog);
+        }
+
+        [Route("{productBacklogId}")]
+        [HttpPatch]
+        public IActionResult Update(int productBacklogId, ProductBacklogDto productBacklogDto)
+        {
+            var productBacklog = this.backlogContext
+                .ProductBacklogs
+                .SingleOrDefault(pb => pb.Id == productBacklogId);
+
+            if (productBacklog == null)
+                return BadRequest("Could not find product backlog with specified id.");
+
+            if (!string.IsNullOrWhiteSpace(productBacklogDto.Name))
+                productBacklog.Name = productBacklogDto.Name;
+
+            this.backlogContext.SaveChanges();
+
+            return NoContent();
         }
 
         [Route("{productBacklogId}")]

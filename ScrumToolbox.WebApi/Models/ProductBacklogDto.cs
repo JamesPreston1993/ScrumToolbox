@@ -1,6 +1,6 @@
 ﻿namespace ScrumToolbox.WebApi.Models
 {
-    public class ProductBacklogCreationDto
+    public class ProductBacklogDto
     {
         public string Name { get; set; }
     }
