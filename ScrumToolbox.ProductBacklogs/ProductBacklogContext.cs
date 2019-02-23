@@ -15,5 +15,12 @@ namespace ScrumToolbox.ProductBacklogs
         {
             Database.EnsureCreated();
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductBacklog>()
+                .HasMany(x => x.BacklogItems)
+                .WithOne();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.Backlogs;
 using ScrumToolbox.WebApi.Models;
@@ -22,6 +23,7 @@ namespace ScrumToolbox.WebApi.Controllers
         {
             var productBacklog = this.backlogContext
                 .ProductBacklogs
+                .Include(b => b.BacklogItems)
                 .SingleOrDefault(pb => pb.Id == productBacklogId);
 
             if (productBacklog == null)
@@ -35,6 +37,7 @@ namespace ScrumToolbox.WebApi.Controllers
         {
             var productBacklogs = this.backlogContext
                 .ProductBacklogs
+                .Include(b => b.BacklogItems)
                 .ToList();
 
             return Ok(productBacklogs);
