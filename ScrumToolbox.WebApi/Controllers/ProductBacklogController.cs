@@ -10,9 +10,9 @@ namespace ScrumToolbox.WebApi.Controllers
     [Route("api/backlogs")]
     public class ProductBacklogController : ControllerBase
     {
-        private readonly ProductBacklogContext backlogContext;
+        private readonly IProductBacklogContext backlogContext;
 
-        public ProductBacklogController(ProductBacklogContext backlogContext)
+        public ProductBacklogController(IProductBacklogContext backlogContext)
         {
             this.backlogContext = backlogContext;
         }
