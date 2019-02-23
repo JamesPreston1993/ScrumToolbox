@@ -5,7 +5,7 @@ using ScrumToolbox.ProductBacklogs.Tasks;
 
 namespace ScrumToolbox.ProductBacklogs
 {
-    public class ProductBacklogContext : DbContext
+    public class ProductBacklogContext : DbContext, IProductBacklogContext
     {
         public DbSet<ProductBacklog> ProductBacklogs { get; set; }
         public DbSet<BacklogItem> BacklogItems { get; set; }
