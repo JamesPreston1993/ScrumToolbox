@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.Backlogs;
-using ScrumToolbox.WebApi.Models;
+using ScrumToolbox.WebApi.Models.ProductBacklogs;
 
 namespace ScrumToolbox.WebApi.Controllers
 {

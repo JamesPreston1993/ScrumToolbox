@@ -1,4 +1,4 @@
-﻿namespace ScrumToolbox.WebApi.Models
+﻿namespace ScrumToolbox.WebApi.Models.ProductBacklogs
 {
     public class ProductBacklogDto
     {

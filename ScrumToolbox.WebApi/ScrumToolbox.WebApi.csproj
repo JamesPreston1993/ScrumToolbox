@@ -8,6 +8,7 @@
     <Folder Include="wwwroot\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Models\ProductBacklogs\" />
   </ItemGroup>
 
   <ItemGroup>
