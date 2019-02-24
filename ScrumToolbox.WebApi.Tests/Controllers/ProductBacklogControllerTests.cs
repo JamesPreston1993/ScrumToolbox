@@ -13,16 +13,20 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
     {
         public class Create
         {
+            private readonly ProductBacklogController controller;
+
+            public Create()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
+                this.controller = new ProductBacklogController(context.Object);
+            }
+
             [Fact]
             public void ReturnsCreated()
             {
-                // arrange
-                var context = new Mock<IProductBacklogContext>();
-                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
-                var controller = new ProductBacklogController(context.Object);
-
                 // act
-                var result = controller.Create(new ProductBacklogDto
+                var result = this.controller.Create(new ProductBacklogDto
                 {
                     Name = "Test"
                 });
@@ -37,13 +41,8 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             [InlineData(" ")]
             public void ReturnsBadRequestWhenNameIsWhitespaceOrEmpty(string name)
             {
-                // arrange
-                var context = new Mock<IProductBacklogContext>();
-                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
-                var controller = new ProductBacklogController(context.Object);
-
                 // act
-                var result = controller.Create(new ProductBacklogDto
+                var result = this.controller.Create(new ProductBacklogDto
                 {
                     Name = name
                 });
