@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApi", "Scru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApi.Tests", "ScrumToolbox.WebApi.Tests\ScrumToolbox.WebApi.Tests.csproj", "{B1424F06-072E-4AD2-B362-AFD66B5E434A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.TestingUtils", "ScrumToolbox.TestingUtils\ScrumToolbox.TestingUtils.csproj", "{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +60,17 @@ Global
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Release|x64.Build.0 = Release|Any CPU
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Release|x86.ActiveCfg = Release|Any CPU
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Release|x86.Build.0 = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|x64.Build.0 = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Debug|x86.Build.0 = Debug|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|x64.ActiveCfg = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|x64.Build.0 = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

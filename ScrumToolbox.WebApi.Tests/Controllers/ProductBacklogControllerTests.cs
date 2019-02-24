@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.Backlogs;
+using ScrumToolbox.TestingUtils.DbContext;
 using ScrumToolbox.WebApi.Controllers;
 using ScrumToolbox.WebApi.Models.ProductBacklogs;
 using Xunit;
@@ -20,7 +18,7 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             {
                 // arrange
                 var context = new Mock<IProductBacklogContext>();
-                context.SetupGet(c => c.ProductBacklogs).Returns(GetMockDbSet(new ProductBacklog()));
+                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
                 var controller = new ProductBacklogController(context.Object);
 
                 // act
@@ -41,7 +39,7 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             {
                 // arrange
                 var context = new Mock<IProductBacklogContext>();
-                context.SetupGet(c => c.ProductBacklogs).Returns(GetMockDbSet(new ProductBacklog()));
+                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
                 var controller = new ProductBacklogController(context.Object);
 
                 // act
@@ -53,19 +51,6 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 // assert
                 Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
                 Assert.Equal("Name cannot be empty.", ((BadRequestObjectResult)result).Value);
-            }
-
-            private static DbSet<T> GetMockDbSet<T>(params T[] sourceList) where T : class
-            {
-                var queryable = sourceList.AsQueryable();
-
-                var dbSet = new Mock<DbSet<T>>();
-                dbSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(queryable.Provider);
-                dbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queryable.Expression);
-                dbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
-                dbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(() => queryable.GetEnumerator());
-
-                return dbSet.Object;
             }
         }
     }

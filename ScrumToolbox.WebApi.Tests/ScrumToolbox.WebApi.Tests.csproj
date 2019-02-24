@@ -19,6 +19,7 @@
     <ProjectReference Include="..\ScrumToolbox.WebApi\ScrumToolbox.WebApi.csproj">
       <IncludeInPackage>true</IncludeInPackage>
     </ProjectReference>
+    <ProjectReference Include="..\ScrumToolbox.TestingUtils\ScrumToolbox.TestingUtils.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
