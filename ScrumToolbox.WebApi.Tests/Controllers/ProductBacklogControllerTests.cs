@@ -18,7 +18,8 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             public Create()
             {
                 var context = new Mock<IProductBacklogContext>();
-                context.SetupGet(c => c.ProductBacklogs).Returns(DbSetUtils.GetMockDbSet(new ProductBacklog()));
+                context.SetupGet(c => c.ProductBacklogs)
+                    .Returns(DbSetUtils.GetMockDbSet<ProductBacklog>());
                 this.controller = new ProductBacklogController(context.Object);
             }
 
