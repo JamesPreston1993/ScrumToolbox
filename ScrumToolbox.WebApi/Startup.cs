@@ -21,10 +21,12 @@ namespace ScrumToolbox.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = "Server=localhost;Database=ScrumToolbox;User Id=sa;Password=Passw0rd1";
+
             services
                 .AddDbContext<ProductBacklogContext>(options =>
                     options.UseSqlServer(connectionString));
 
+            services.AddScoped<IProductBacklogContext, ProductBacklogContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
