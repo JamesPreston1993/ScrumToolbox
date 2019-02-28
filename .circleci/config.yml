@@ -8,3 +8,4 @@ jobs:
       - run: dotnet restore
       - run: dotnet build
       - run: dotnet test --no-build
+      - run: dotnet publish --no-build
