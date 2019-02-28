@@ -1,11 +1,12 @@
 version: 2
 jobs:
   build:
+    working_directory: /build
     docker:
       - image: microsoft/dotnet:sdk
     steps:
       - checkout
       - run: dotnet restore
-      - run: dotnet build
-      - run: dotnet test --no-build
-      - run: dotnet publish --no-build
+      - run: dotnet build --configuration Release
+      - run: dotnet test --no-build --configuration Release
+      - run: dotnet publish  --no-build --configuration Release ./ScrumToolbox.WebApi/ScrumToolbox.WebApi.csproj
