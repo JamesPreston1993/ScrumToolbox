@@ -13,3 +13,6 @@ jobs:
       - store_artifacts: 
           path: /build/ScrumToolbox.WebApi/bin/Release/netcoreapp2.1/publish
           destination: app-build
+      - store_artifacts: 
+          path: /build/ScrumToolbox.WebApi.Tests/coverage.json
+          destination: code-coverage
