@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: dotnet restore
       - run: dotnet build --configuration Release
-      - run: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:Include=[ScrumToolbox.*]*
+      - run: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:Include=[ScrumToolbox.*]* /p:CoverletOutputFormat=opencover /p:CoverletOutput=./coverage/coverage.xml
       - run: dotnet publish  --no-build --configuration Release ./ScrumToolbox.WebApi/ScrumToolbox.WebApi.csproj
       - store_artifacts: 
           path: /build/ScrumToolbox.WebApi/bin/Release/netcoreapp2.1/publish

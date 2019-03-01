@@ -345,4 +345,4 @@ healthchecksdb
 MigrationBackup/
 
 # Coverage
-coverage.json
+coverage/
