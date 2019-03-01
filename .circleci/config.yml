@@ -12,14 +12,14 @@ jobs:
       - run:
           name: Run tests
           command: |
-            dotnet test
-            --no-build
-            --configuration Release
-            --logger "trx;LogFileName=results.xml"
-            --results-directory /build/tests
-            /p:CollectCoverage=true
-            /p:Include=[ScrumToolbox.*]*
-            /p:CoverletOutputFormat=opencover
+            dotnet test \
+            --no-build \
+            --configuration Release \
+            --logger "trx;LogFileName=results.xml" \
+            --results-directory /build/tests \
+            /p:CollectCoverage=true \
+            /p:Include=[ScrumToolbox.*]* \
+            /p:CoverletOutputFormat=opencover \
             /p:CoverletOutput=/build/coverage/coverage.xml
       - run:
           name: Publish build
