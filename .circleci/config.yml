@@ -11,13 +11,12 @@ jobs:
           command: dotnet build --configuration Release
       - run:
           name: Run tests
-          command: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:Include=[ScrumToolbox.*]* /p:CoverletOutputFormat=opencover /p:CoverletOutput=/build/coverage/coverage.xml
+          command: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:Include=[ScrumToolbox.*]* /p:CoverletOutputFormat=opencover /p:CoverletOutput=/build/coverage/xunit/results.xml
       - run:
           name: Publish build
           command: dotnet publish  --no-build --configuration Release ./ScrumToolbox.WebApi/ScrumToolbox.WebApi.csproj
       - store_artifacts: 
           path: /build/ScrumToolbox.WebApi/bin/Release/netcoreapp2.1/publish
           destination: app-build
-      - store_artifacts: 
+      - store_test_results: 
           path: /build/coverage
-          destination: code-coverage
