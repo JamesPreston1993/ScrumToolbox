@@ -11,7 +11,16 @@ jobs:
           command: dotnet build --configuration Release
       - run:
           name: Run tests
-          command: dotnet test --no-build --configuration Release -l "trx;LogFileName=results.xml" -r /build/tests/xunit /p:CollectCoverage=true /p:Include=[ScrumToolbox.*]* /p:CoverletOutputFormat=opencover /p:CoverletOutput=/build/coverage/coverage.xml
+          command: |
+            dotnet test
+            --no-build
+            --configuration Release
+            --logger "trx;LogFileName=results.xml"
+            --results-directory /build/tests
+            /p:CollectCoverage=true
+            /p:Include=[ScrumToolbox.*]*
+            /p:CoverletOutputFormat=opencover
+            /p:CoverletOutput=/build/coverage/coverage.xml
       - run:
           name: Publish build
           command: dotnet publish  --no-build --configuration Release ./ScrumToolbox.WebApi/ScrumToolbox.WebApi.csproj
