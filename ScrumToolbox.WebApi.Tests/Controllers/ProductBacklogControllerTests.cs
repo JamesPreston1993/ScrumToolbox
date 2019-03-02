@@ -53,5 +53,38 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 Assert.Equal("Name cannot be empty.", ((BadRequestObjectResult)result).Value);
             }
         }
+
+        public class Get
+        {
+            private readonly ProductBacklogController controller;
+
+            public Get()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.ProductBacklogs)
+                    .Returns(DbSetUtils.GetMockDbSet(new ProductBacklog { Id = 1 }));
+                this.controller = new ProductBacklogController(context.Object);
+            }
+
+            [Fact]
+            public void ReturnsOk()
+            {
+                // act
+                var result = this.controller.Get(1);
+
+                // assert
+                Assert.Equal(200, ((OkObjectResult)result).StatusCode);
+            }
+
+            [Fact]
+            public void ReturnsBadRequestWhenIdIsInvalid()
+            {
+                // act
+                var result = this.controller.Get(2);
+
+                // assert
+                Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+            }
+        }
     }
 }
