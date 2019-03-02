@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.Backlogs;
@@ -84,6 +85,42 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
 
                 // assert
                 Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+            }
+        }
+
+        public class GetMany
+        {
+            private readonly ProductBacklogController controller;
+
+            public GetMany()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.ProductBacklogs)
+                    .Returns(DbSetUtils.GetMockDbSet(
+                        new ProductBacklog { Id = 1 },
+                        new ProductBacklog { Id = 2 }));
+                this.controller = new ProductBacklogController(context.Object);
+            }
+
+            [Fact]
+            public void ReturnsOk()
+            {
+                // act
+                var result = this.controller.GetMany();
+
+                // assert
+                Assert.Equal(200, ((OkObjectResult)result).StatusCode);
+            }
+
+            [Fact]
+            public void ReturnsAllProductBacklogsInDb()
+            {
+                // act
+                var result = (OkObjectResult) this.controller.GetMany();
+
+                // assert
+                var backlogs = (List<ProductBacklog>)result.Value;
+                Assert.Equal(2, backlogs.Count);
             }
         }
     }
