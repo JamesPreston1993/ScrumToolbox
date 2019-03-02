@@ -76,7 +76,7 @@ namespace ScrumToolbox.WebApi.Controllers
 
             this.backlogContext.SaveChanges();
 
-            return NoContent();
+            return Ok(productBacklog);
         }
 
         [Route("{productBacklogId}")]

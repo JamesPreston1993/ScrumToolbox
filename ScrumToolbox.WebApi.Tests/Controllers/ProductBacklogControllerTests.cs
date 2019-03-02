@@ -123,5 +123,76 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 Assert.Equal(2, backlogs.Count);
             }
         }
+
+        public class Update
+        {
+            private readonly ProductBacklogController controller;
+
+            public Update()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.ProductBacklogs)
+                    .Returns(DbSetUtils.GetMockDbSet(new ProductBacklog { Id = 1, Name = "Original Value" }));
+                this.controller = new ProductBacklogController(context.Object);
+            }
+
+            [Fact]
+            public void ReturnsOk()
+            {
+                // arrange
+                var dto = new ProductBacklogDto();
+
+                // act
+                var result = this.controller.Update(1, dto);
+
+                // assert
+                Assert.Equal(200, ((OkObjectResult)result).StatusCode);
+            }
+
+
+            [Fact]
+            public void SetsNameWhenProvided()
+            {
+                // arrange
+                var dto = new ProductBacklogDto
+                {
+                    Name = "New value"
+                };
+
+                // act
+                var result = (OkObjectResult) this.controller.Update(1, dto);
+
+                // assert
+                var backlog = (ProductBacklog)result.Value;
+                Assert.Equal("New value", backlog.Name);
+            }
+
+            [Fact]
+            public void DoesNotSetNameWhenNotProvided()
+            {
+                // arrange
+                var dto = new ProductBacklogDto();
+
+                // act
+                var result = (OkObjectResult)this.controller.Update(1, dto);
+
+                // assert
+                var backlog = (ProductBacklog)result.Value;
+                Assert.Equal("Original Value", backlog.Name);
+            }
+
+            [Fact]
+            public void ReturnsBadRequestWhenIdIsInvalid()
+            {
+                // arrange
+                var dto = new ProductBacklogDto();
+
+                // act
+                var result = this.controller.Update(2, dto);
+
+                // assert
+                Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+            }
+        }
     }
 }
