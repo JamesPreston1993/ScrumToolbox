@@ -194,5 +194,38 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
             }
         }
+
+        public class Delete
+        {
+            private readonly ProductBacklogController controller;
+
+            public Delete()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.ProductBacklogs)
+                    .Returns(DbSetUtils.GetMockDbSet(new ProductBacklog { Id = 1 }));
+                this.controller = new ProductBacklogController(context.Object);
+            }
+
+            [Fact]
+            public void ReturnsNoContent()
+            {
+                // act
+                var result = this.controller.Delete(1);
+
+                // assert
+                Assert.Equal(204, ((NoContentResult)result).StatusCode);
+            }
+
+            [Fact]
+            public void ReturnsBadRequestWhenIdIsInvalid()
+            {
+                // act
+                var result = this.controller.Delete(2);
+
+                // assert
+                Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+            }
+        }
     }
 }
