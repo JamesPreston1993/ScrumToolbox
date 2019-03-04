@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.BacklogItems;
-using ScrumToolbox.ProductBacklogs.Backlogs;
 using ScrumToolbox.TestingUtils.DbContext;
 using ScrumToolbox.WebApi.Controllers;
 using Xunit;
@@ -23,7 +22,8 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 context.SetupGet(c => c.BacklogItems)
                     .Returns(DbSetUtils.GetMockDbSet(
                         new BacklogItem { Id = 1, ProductBacklogId = 1},
-                        new BacklogItem { Id = 2, ProductBacklogId = 1 }
+                        new BacklogItem { Id = 2, ProductBacklogId = 1 },
+                        new BacklogItem { Id = 3, ProductBacklogId = 2 }
                     ));
                 this.controller = new ProductBacklogItemController(context.Object);
             }
