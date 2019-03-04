@@ -97,5 +97,50 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
                 Assert.Equal("Could not find backlog item with specified id and/or backlog id.", ((BadRequestObjectResult)result).Value);
             }
         }
+
+        public class Delete
+        {
+            private readonly ProductBacklogItemController controller;
+
+            public Delete()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.BacklogItems)
+                    .Returns(DbSetUtils.GetMockDbSet(new BacklogItem { Id = 1, ProductBacklogId = 1 }));
+                this.controller = new ProductBacklogItemController(context.Object);
+            }
+
+            [Fact]
+            public void ReturnsNoContent()
+            {
+                // act
+                var result = this.controller.Delete(1, 1);
+
+                // assert
+                Assert.Equal(204, ((NoContentResult)result).StatusCode);
+            }
+
+            [Fact]
+            public void ReturnsBadRequestWhenIdIsInvalid()
+            {
+                // act
+                var result = this.controller.Delete(1, 2);
+
+                // assert
+                Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+                Assert.Equal("Could not find backlog item with specified id and/or backlog id.", ((BadRequestObjectResult)result).Value);
+            }
+
+            [Fact]
+            public void ReturnsBadRequestWhenBacklogIdIsInvalid()
+            {
+                // act
+                var result = this.controller.Delete(2, 1);
+
+                // assert
+                Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+                Assert.Equal("Could not find backlog item with specified id and/or backlog id.", ((BadRequestObjectResult)result).Value);
+            }
+        }
     }
 }

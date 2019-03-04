@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ScrumToolbox.ProductBacklogs;
 
 namespace ScrumToolbox.WebApi.Controllers
@@ -20,6 +21,7 @@ namespace ScrumToolbox.WebApi.Controllers
         {
             var productBacklogItem = this.backlogContext
                 .BacklogItems
+                .Include(pbi => pbi.Tasks)
                 .Where(pbi => pbi.ProductBacklogId == productBacklogId)
                 .SingleOrDefault(pbi => pbi.Id == backlogItemId);
 
@@ -34,10 +36,31 @@ namespace ScrumToolbox.WebApi.Controllers
         {
             var pbis = this.backlogContext
                 .BacklogItems
+                .Include(pbi => pbi.Tasks)
                 .Where(pbi => pbi.ProductBacklogId == productBacklogId)
                 .ToList();
 
             return Ok(pbis);
+        }
+
+        [Route("{backlogItemId}")]
+        [HttpGet]
+        public IActionResult Delete(int productBacklogId, int backlogItemId)
+        {
+            var productBacklogItem = this.backlogContext
+                .BacklogItems
+                .Where(pbi => pbi.ProductBacklogId == productBacklogId)
+                .SingleOrDefault(pbi => pbi.Id == backlogItemId);
+
+            if (productBacklogItem == null)
+                return BadRequest("Could not find backlog item with specified id and/or backlog id.");
+
+            this.backlogContext
+                .BacklogItems
+                .Remove(productBacklogItem);
+            this.backlogContext.SaveChanges();
+
+            return NoContent();
         }
     }
 }
