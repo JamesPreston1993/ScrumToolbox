@@ -12,6 +12,19 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
 {
     public class ProductBacklogItemControllerTests
     {
+        public class Create
+        {
+            private readonly ProductBacklogItemController controller;
+
+            public Create()
+            {
+                var context = new Mock<IProductBacklogContext>();
+                context.SetupGet(c => c.BacklogItems)
+                    .Returns(DbSetUtils.GetMockDbSet<BacklogItem>());
+                this.controller = new ProductBacklogItemController(context.Object);
+            }
+        }
+
         public class Get
         {
             private readonly ProductBacklogItemController controller;
