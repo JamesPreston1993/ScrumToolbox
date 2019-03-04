@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScrumToolbox.ProductBacklogs;
+using ScrumToolbox.WebApi.Models.BacklogItems;
 
 namespace ScrumToolbox.WebApi.Controllers
 {
@@ -13,6 +14,12 @@ namespace ScrumToolbox.WebApi.Controllers
         public ProductBacklogItemController(IProductBacklogContext backlogContext)
         {
             this.backlogContext = backlogContext;
+        }
+
+        [HttpPost]
+        public IActionResult Create(int productBacklogId, BacklogItemCreateDto backlogItemDto)
+        {
+            return Created("0", null);
         }
 
         [Route("{backlogItemId}")]
