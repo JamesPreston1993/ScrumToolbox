@@ -10,9 +10,9 @@ namespace ScrumToolbox.WebApi.Controllers
     [Route("api/backlogs/{productBacklogId}/pbis")]
     public class ProductBacklogItemController : ControllerBase
     {
-        private readonly ProductBacklogContext backlogContext;
+        private readonly IProductBacklogContext backlogContext;
 
-        public ProductBacklogItemController(ProductBacklogContext backlogContext)
+        public ProductBacklogItemController(IProductBacklogContext backlogContext)
         {
             this.backlogContext = backlogContext;
         }
