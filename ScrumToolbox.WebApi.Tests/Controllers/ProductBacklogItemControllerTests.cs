@@ -79,7 +79,7 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             public void ReturnsBadRequestWhenIdIsInvalid()
             {
                 // act
-                var result = this.controller.Get(2, 1);
+                var result = this.controller.Get(1, 2);
 
                 // assert
                 Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
@@ -90,7 +90,7 @@ namespace ScrumToolbox.WebApi.Tests.Controllers
             public void ReturnsBadRequestWhenBacklogIdIsInvalid()
             {
                 // act
-                var result = this.controller.Get(1, 2);
+                var result = this.controller.Get(2, 1);
 
                 // assert
                 Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
