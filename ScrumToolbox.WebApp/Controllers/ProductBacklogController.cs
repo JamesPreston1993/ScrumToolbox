@@ -18,7 +18,7 @@ namespace ScrumToolbox.WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductBacklogDto productBacklogDto)
+        public IActionResult Create([FromBody] ProductBacklogDto productBacklogDto)
         {
             if (string.IsNullOrWhiteSpace(productBacklogDto.Name))
                 return BadRequest("Name cannot be empty.");
@@ -62,7 +62,7 @@ namespace ScrumToolbox.WebApp.Controllers
 
         [Route("{productBacklogId}")]
         [HttpPatch]
-        public IActionResult Update(int productBacklogId, ProductBacklogDto productBacklogDto)
+        public IActionResult Update(int productBacklogId, [FromBody] ProductBacklogDto productBacklogDto)
         {
             var productBacklog = this.backlogContext
                 .ProductBacklogs

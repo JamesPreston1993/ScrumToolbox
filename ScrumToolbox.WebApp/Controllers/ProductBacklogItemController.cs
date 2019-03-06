@@ -17,7 +17,7 @@ namespace ScrumToolbox.WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int productBacklogId, BacklogItemCreateDto backlogItemDto)
+        public IActionResult Create(int productBacklogId, [FromBody] BacklogItemCreateDto backlogItemDto)
         {
             return Created("0", null);
         }
