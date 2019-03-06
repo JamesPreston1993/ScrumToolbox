@@ -17,10 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ScrumToolbox.WebApi\ScrumToolbox.WebApi.csproj">
+    <ProjectReference Include="..\ScrumToolbox.WebApp\ScrumToolbox.WebApp.csproj">
       <IncludeInPackage>true</IncludeInPackage>
     </ProjectReference>
     <ProjectReference Include="..\ScrumToolbox.TestingUtils\ScrumToolbox.TestingUtils.csproj" />
+    <ProjectReference Include="..\ScrumToolbox.ProductBacklogs\ScrumToolbox.ProductBacklogs.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />

@@ -4,11 +4,11 @@ using Moq;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.Backlogs;
 using ScrumToolbox.TestingUtils.DbContext;
-using ScrumToolbox.WebApi.Controllers;
-using ScrumToolbox.WebApi.Models.ProductBacklogs;
+using ScrumToolbox.WebApp.Controllers;
+using ScrumToolbox.WebApp.Models.ProductBacklogs;
 using Xunit;
 
-namespace ScrumToolbox.WebApi.Tests.Controllers
+namespace ScrumToolbox.WebApp.Tests.Controllers
 {
     public class ProductBacklogControllerTests
     {

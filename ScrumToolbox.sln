@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.ProductBacklog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApi", "ScrumToolbox.WebApi\ScrumToolbox.WebApi.csproj", "{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApi.Tests", "ScrumToolbox.WebApi.Tests\ScrumToolbox.WebApi.Tests.csproj", "{B1424F06-072E-4AD2-B362-AFD66B5E434A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApp.Tests", "ScrumToolbox.WebApp.Tests\ScrumToolbox.WebApp.Tests.csproj", "{B1424F06-072E-4AD2-B362-AFD66B5E434A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.TestingUtils", "ScrumToolbox.TestingUtils\ScrumToolbox.TestingUtils.csproj", "{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}"
 EndProject

@@ -5,10 +5,10 @@ using Moq;
 using ScrumToolbox.ProductBacklogs;
 using ScrumToolbox.ProductBacklogs.BacklogItems;
 using ScrumToolbox.TestingUtils.DbContext;
-using ScrumToolbox.WebApi.Controllers;
+using ScrumToolbox.WebApp.Controllers;
 using Xunit;
 
-namespace ScrumToolbox.WebApi.Tests.Controllers
+namespace ScrumToolbox.WebApp.Tests.Controllers
 {
     public class ProductBacklogItemControllerTests
     {
