@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.ProductBacklogs", "ScrumToolbox.ProductBacklogs\ScrumToolbox.ProductBacklogs.csproj", "{EB0B7EE0-E64D-4C46-88FB-62AB7826EA9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApi", "ScrumToolbox.WebApi\ScrumToolbox.WebApi.csproj", "{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.WebApp.Tests", "ScrumToolbox.WebApp.Tests\ScrumToolbox.WebApp.Tests.csproj", "{B1424F06-072E-4AD2-B362-AFD66B5E434A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolbox.TestingUtils", "ScrumToolbox.TestingUtils\ScrumToolbox.TestingUtils.csproj", "{4D395BA1-72E2-4BBD-AE5E-DE86F92AFEEE}"
@@ -38,18 +36,6 @@ Global
 		{EB0B7EE0-E64D-4C46-88FB-62AB7826EA9B}.Release|x64.Build.0 = Release|Any CPU
 		{EB0B7EE0-E64D-4C46-88FB-62AB7826EA9B}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB0B7EE0-E64D-4C46-88FB-62AB7826EA9B}.Release|x86.Build.0 = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|x64.Build.0 = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Debug|x86.Build.0 = Debug|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|x64.ActiveCfg = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|x64.Build.0 = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|x86.ActiveCfg = Release|Any CPU
-		{1B1D1C39-BC9C-42E9-8B16-574A8336BEAD}.Release|x86.Build.0 = Release|Any CPU
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1424F06-072E-4AD2-B362-AFD66B5E434A}.Debug|x64.ActiveCfg = Debug|Any CPU

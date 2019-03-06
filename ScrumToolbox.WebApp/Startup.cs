@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ScrumToolbox.ProductBacklogs;
 
 namespace ScrumToolbox.WebApp
 {
@@ -20,6 +22,13 @@ namespace ScrumToolbox.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = "Server=localhost;Database=ScrumToolbox;User Id=sa;Password=Passw0rd1";
+            services
+                .AddDbContext<ProductBacklogContext>(options =>
+                    options.UseSqlServer(connectionString));
+
+            services.AddScoped<IProductBacklogContext, ProductBacklogContext>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the React files will be served from this directory
