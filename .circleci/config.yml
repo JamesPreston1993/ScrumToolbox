@@ -21,12 +21,6 @@ jobs:
             /p:Include=[ScrumToolbox.*]* \
             /p:CoverletOutputFormat=opencover \
             /p:CoverletOutput=/build/coverage/coverage.xml
-      - run:
-          name: Publish build
-          command: dotnet publish  --no-build --configuration Release ./ScrumToolbox.WebApp/ScrumToolbox.WebApp.csproj
-      - store_artifacts: 
-          path: /build/ScrumToolbox.WebApp/bin/Release/netcoreapp2.1/publish
-          destination: app-build
       - store_artifacts: 
           path: /build/coverage
           destination: code-coverage
